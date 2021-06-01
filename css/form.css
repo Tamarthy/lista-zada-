@@ -1,0 +1,29 @@
+.form {}
+
+.form__legend {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 0px;
+    border: 1px hsl(0, 0%, 90%) solid;
+}
+
+.form__input {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border: 1px hsl(0, 0%, 90%) solid;
+    padding: 10px;
+}
+
+@media (max-width: 767px) {
+    .form__input {
+        flex-wrap: wrap;
+    }
+}
+
+.form__newTask {
+    margin: 10px;
+    border: 1px hsl(0, 0%, 90%) solid;
+    padding: 10px;
+    flex-grow: 1;
+}

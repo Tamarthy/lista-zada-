@@ -1,0 +1,20 @@
+.taskList {
+    background-color: white;
+    border: 1px hsl(0, 0%, 90%) solid;
+    margin-top: 1px;
+    list-style-type: none;
+    padding: 30px 10px 30px 20px;
+    display: flex;
+    width: 100%;
+ 
+}
+
+.taskList__itemText {
+    flex-grow: 1;
+    padding: 20px;
+    
+}
+
+.taskList__itemText--done {
+    text-decoration: line-through;
+}
