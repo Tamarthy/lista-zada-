@@ -8,19 +8,16 @@
             removeButton.addEventListener("click", () => {
                 tasks.splice(index, 1);
                 render();
-            })
+            });
         });
         const doneButtons = document.querySelectorAll(".js-done");
         doneButtons.forEach((doneButton, index) => {
-            doneButton.addEventListener("click", () =>
-                tasks[index].done = !tasks[index].done)
-                render();
-            });
-
-
-
-    // render();
-}
+            doneButton.addEventListener("click", () => {
+                tasks[index].done = !tasks[index].done;
+            render();
+        });
+    });
+    }
 
 
 
@@ -29,11 +26,11 @@ const render = () => {
 
     for (const task of tasks) {
         htmlString += `
-                <li class="taskList">
+                <li class="taskList__item">
                 
                 <button class="taskList__button js-done">${task.done ? "✓" : ""}</button>
 
-                <span class="taskList__itemText"${task.done ? "taskList__itemText taskList__itemText--done" : ""}>${task.content}</span>
+                <span class="taskList__itemText${task.done ? " taskList__itemText--done" : ""}">${task.content}</span>
 
                 <button class="taskList__button taskList__button--removed js-remove">🗑</button>
                 </li>
@@ -61,6 +58,8 @@ const init = () => {
             content: newTaskContent,
             done: false,
         })
+        newTaskInput.focus();
+        newTaskInput.value = "";
         render();
     });
 }
