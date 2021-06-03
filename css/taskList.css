@@ -4,15 +4,21 @@
     margin-top: 1px;
     list-style-type: none;
     padding: 30px 10px 30px 20px;
-    display: flex;
+    /*  flex-basis: 100%; */
     width: 100%;
- 
+}
+
+.taskList__item {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px rgb(189, 186, 186);
+    margin-bottom: 20px;
 }
 
 .taskList__itemText {
     flex-grow: 1;
-    padding: 20px;
-    
+    padding: 10px;
+    word-break: break-word;
 }
 
 .taskList__itemText--done {
