@@ -1,4 +1,10 @@
-.form {}
+.form {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border: 1px hsl(0, 0%, 90%) solid;
+    padding: 10px;
+}
 
 .form__legend {
     background-color: white;
@@ -7,16 +13,8 @@
     border: 1px hsl(0, 0%, 90%) solid;
 }
 
-.form__input {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    border: 1px hsl(0, 0%, 90%) solid;
-    padding: 10px;
-}
-
 @media (max-width: 767px) {
-    .form__input {
+    .form {
         flex-wrap: wrap;
     }
 }
