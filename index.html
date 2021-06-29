@@ -26,15 +26,19 @@
         <section>
             <h2 class="form__legend">Dodaj nowe zadanie</h2>
             <form class="form js-form">
-                    <input name="task" required placeholder="Co jest do zrobienia?" class="form__newTask js-newTask">
-                    <button class="AddNewTaskButton js-AddNewTaskButton">Dodaj zadanie</button>
+                <input name="task" required placeholder="Co jest do zrobienia?" class="form__newTask js-newTask">
+                <button class="AddNewTaskButton js-AddNewTaskButton">Dodaj zadanie</button>
             </form>
         </section>
         <section>
-            <h2 class="form__legend">Lista zadań</h2>
+            <div class="form__legend">
+                <h2 class="legend__title">Lista zadań</h2>
+               <div class="js-upButtons"></div>
+            </div>
+
+            <ul class="taskList js-tasks">
+            </ul>
         </section>
-        <ul class="taskList js-tasks">
-        </ul>
     </div>
 </body>
 
