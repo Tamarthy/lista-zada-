@@ -5,6 +5,7 @@
     padding: 10px;
     border: 1px transparent solid;
     justify-self: flex-end;
+    transition: transform 2s;
 }
 
 @media (max-width: 767px) {
@@ -15,20 +16,33 @@
 
 .AddNewTaskButton:hover {
     background-color: hsl(180, 100%, 30%);
+    transform: scale(1.2);
 }
 
 .AddNewTaskButton:active {
     background-color: hsl(180, 100%, 35%);
 }
 
-.taskList__button{
- width: 30px;
- height: 30px;
-background-color:green;
- border: none;
- color: white;
+.taskList__button {
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    border: none;
+    color: white;
 }
-.taskList__button--removed{
-background-color: red;
-justify-self: flex-end;
+
+.taskList__button--removed {
+    background-color: red;
+    justify-self: flex-end;
+}
+
+.section__buttonStyle {
+    border: none;
+    background-color: white;
+    color: teal;
+    margin: 0;
+   
+}
+.section__buttonStyle:hover{
+    color: hsl(180, 100%, 30%);
 }
