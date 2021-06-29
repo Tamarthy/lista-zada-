@@ -15,6 +15,10 @@
     margin-bottom: 20px;
 }
 
+.taskList__item--hidden {
+    display: none;
+}
+
 .taskList__itemText {
     flex-grow: 1;
     padding: 10px;
