@@ -10,7 +10,7 @@
         if (tasks.length > 0) {
             htmlString += `
          <button class="section__buttonStyle js-hideDoneButton">
-         ${hideDoneTasks === false ? "Ukryj ukończone" : "Pokaż ukończone"}
+         ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
          </button>
          <button class="section__buttonStyle js-allTasksDoneButton" ${tasks.every(({ done }) => done) ? "disabled" : ""}>
          Ukończ wszystkie</button>
@@ -30,24 +30,26 @@
             done: true,
         }));
         render();
-        // nie rozumiem skąd tu tyle nawiasów i dla task i dalej dla mapowania
+        // nie rozumiem skąd tu tyle nawiasów i dla task i dalej dla mapowania ???
+        // odp: do task w map nie trzeba wyjątkowo drugiego nawiasu, bo jest tylko jeden parantetr. ale za arrow już trzeba żeby powstał dalej obiekt
     };
 
-    const bindUpEvents = () => {
-        const allTasksDoneButton = document.querySelectorAll(".js-allTasksDoneButton");
+    const bindUpButtonsEvents = () => {
+        const allTasksDoneButton = document.querySelector(".js-allTasksDoneButton");
         if (allTasksDoneButton) {
             allTasksDoneButton.addEventListener("click",
                 markAllTasksDone);
         }
-        render();
 
-        const hideDoneButton = document.querySelectorAll(".js-hideDoneButton");
+
+        const hideDoneButton = document.querySelector(".js-hideDoneButton");
         if (hideDoneButton) {
             hideDoneButton.addEventListener("click",
                 toggleHideDoneTasks);
         }
-        render();
-    }; // tu cóś jest do porpawy
+
+    }; // usunięte tu render();, chociaż przy jednym zostawionym na końcu tej funkcji dlaej działa
+    // usunięcie All z document.querySelector - ale nie rozumiem czemu to ma aż taki wpływ na działanie tych przycisków ???
 
 
 
@@ -59,6 +61,7 @@
                 done: false,
             },
         ];
+        render();
     };
 
     const removeTask = (index) => {
@@ -79,7 +82,8 @@
             ...tasks.slice(index + 1),
         ];
         render();
-        // nie wiem czy render potrzebny
+        // nie wiem czy render potrzebny ???
+        // odp: potrzebny. bo następuje tu zamiana i trzeba kod wygenerować na nowo
     };
 
     const bindEvents = () => {
@@ -102,7 +106,7 @@
     const renderTaskList = () => {
         // dlaczego tu poniżej tasks nie jest w nawiasie? czemu to nie jest f strzałkowa?
         const taskToHTML = task => `
-                 <li class="taskList__item${task.done && hideDoneTasks ? "taskList__item--hidden" : ""} js-tasks">
+                 <li class="taskList__item${task.done && hideDoneTasks ? "taskList__item--hidden" : ""}">
                 
                 <button class="taskList__button js-done">${task.done ? "✓" : ""}</button>
 
@@ -121,8 +125,9 @@
         bindEvents();
 
         renderUpButtons();
-        bindUpEvents();
+        bindUpButtonsEvents();
         // czy ta kolejność ma znaczenie? 
+        // odp: ma.
     }
 
     const onFormSubmit = (event) => {
