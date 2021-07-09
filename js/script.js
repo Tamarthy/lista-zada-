@@ -106,7 +106,7 @@
     const renderTaskList = () => {
         // dlaczego tu poniżej tasks nie jest w nawiasie? czemu to nie jest f strzałkowa?
         const taskToHTML = task => `
-                 <li class="taskList__item${task.done && hideDoneTasks ? "taskList__item--hidden" : ""}">
+                 <li class="taskList__item${task.done && hideDoneTasks ? "taskList__item taskList__item--hidden" : ""}">
                 
                 <button class="taskList__button js-done">${task.done ? "✓" : ""}</button>
 
